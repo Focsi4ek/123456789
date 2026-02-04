@@ -1,5 +1,7 @@
 ## Git. Основы
 
+![Linus](/content/img/linus-torvalds-about-nvidia-june-2012.jpg)
+
 ### Зачем нужен Git?
 
 #### Почему не флешка?
@@ -107,7 +109,7 @@ git status
 git status
 ```
 
-Показать сравнение изменения файлов до и после (до git add)
+Показать сравнение изменения файлов до и после (до `git add`)
 
 ```git diff```
 
@@ -136,14 +138,7 @@ git add .
 git add *
 ```
 
-```.gitignore``` - файл, который содержит blacklist несохраняемых файлов.
-
-или объединить **git add** с **git commit**
-```shell
-git commit -a
-```
-
-> Откроется текстовый редактор командной сроки, в котором нужно записать текст коммита
+```.gitignore``` - файл, который содержит **blacklist** несохраняемых файлов.
 
 Отменить добавленные изменения
 ```shell
@@ -156,10 +151,17 @@ git restore --staged README.md
 git commit -m "Some message"
 ```
 
-Объединить ```git add``` и ```git commit```:
+или объединить ```git add``` и ```git commit```:
 ```shell
 git commit -a -m 'Update README.md'
 ```
+
+или
+```shell
+git commit -a
+```
+
+> Откроется текстовый редактор командной сроки по умолчанию, в котором нужно записать текст коммита
 
 Изменение текста последнего коммита
 
@@ -176,6 +178,11 @@ git push
 или сразу обе команды:
 ```shell
 git pull && git push
+```
+
+или более "мягкий" вариант
+```shell
+git getch && git push
 ```
 
 или, если не получилось с 1-го раза запушить, то:
@@ -196,6 +203,11 @@ git push -u origin master
 
 ```shell
 git pull
+```
+
+или более "мягкий" вариант
+```shell
+git fetch
 ```
 
 ### Получить список коммитов текущего репозитория
@@ -249,6 +261,12 @@ git checkout 94120de
 ```
 
 Вернуться на последний коммит
+
+```shell
+git switch -
+```
+
+или
 ```shell
 git checkout master
 ```
@@ -288,7 +306,7 @@ git branch test
 
 Переключиться на другую ветку
 ```shell
-git switch master
+git switch test
 ```
 
 или
@@ -302,26 +320,26 @@ git checkout test
 git checkout -b test
 ```
 
-Отправить новую ветку на сервер
+Отправить новую ветку на удалённый сервер
 ```shell
 git push --set-upstream origin test
 ```
 
 где `test` -  имя отправляемой ветки
 
-Удалить удалённую ветку
-```shell
-git push origin --delete test
-```
-
 Удалить локальную ветку
 ```shell
 git branch -d test
 ```
 
+Удалить удалённую ветку
+```shell
+git push origin --delete test
+```
+
 ### Слияние веток
 
-Ветку **anybranch** слить с **master**
+Например, ветку **anybranch** слить с **master**
 
 Переходим в ветку master
 ```shell
